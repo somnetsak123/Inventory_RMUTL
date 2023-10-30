@@ -1,0 +1,16 @@
+.count-number-con {
+    position: relative;
+}
+
+.count-number {
+    position: absolute;
+    color: white;
+    background-color: red;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    border-radius: 100%;
+    top: -5px;
+    left: -8px;
+}

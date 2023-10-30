@@ -1,0 +1,78 @@
+body {
+    font-family: Kanit;
+    height: 100vh;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    height: auto;
+    background: #513300;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+}
+
+.nav-toggle {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    font-size: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.logo {
+    margin: 40px 0 40px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    flex-direction: row;
+}
+
+ul li {
+    display: inline-block;
+    margin: 0 70px 0 0;
+    text-align: left;
+    border-bottom-style: none;
+    padding: 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+ul li:first-child {
+    margin-top: 5;
+}
+
+ul li:hover {
+    opacity: 0.5;
+}
+
+.active {
+    display: flex;
+}
+
+@media screen and (min-width: 800px) {
+    nav {
+        height: 80px;
+        flex-direction: row;
+    }
+
+    .logo {
+        padding-left: 50px;
+        margin: 0;
+        width: 20%;
+    }
+}
