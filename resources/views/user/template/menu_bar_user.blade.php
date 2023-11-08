@@ -61,7 +61,22 @@ $banner_sql = DB::table($prefix . 'tb_templates')->where('id_template', 2)->get(
 </head>
 
 <body>
+    <style>
+        /* Add a media query for small screens */
+        @media screen and (max-width: 768px) {
+            .list-1 {
+                display: none;
+            }
 
+            .menu-visible {
+                display: block !important;
+            }
+
+            .list-1.menu-visible {
+                display: block;
+            }
+        }
+    </style>
     <script src="{{ asset('js/todo.js') }}" defer></script>
 
     <nav>
@@ -74,9 +89,6 @@ $banner_sql = DB::table($prefix . 'tb_templates')->where('id_template', 2)->get(
 
             foreach ($title_sql as $row) {
             ?>
-
-
-
                 <h1> {{$row->template_data}}</h1>
 
             <?php
@@ -84,7 +96,7 @@ $banner_sql = DB::table($prefix . 'tb_templates')->where('id_template', 2)->get(
 
             ?>
         </div>
-        <ul  class="list-1 " id="js-menu">
+        <ul class="list-1 " id="js-menu">
             <li><a href="/">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill inline-flex" viewBox="0 0 16 16">
                         <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
@@ -107,6 +119,21 @@ $banner_sql = DB::table($prefix . 'tb_templates')->where('id_template', 2)->get(
         </ul>
     </nav>
 
+    <script>
+        // JavaScript to toggle the menu on small screens
+        document.getElementById('js-nav-toggle').addEventListener('click', function() {
+
+            console.log(document.getElementById('js-menu').classList.toggle('menu-visible'));
+        });
+
+        // Close the menu when a menu item is clicked (optional)
+        var menuItems = document.querySelectorAll('.list-1 a');
+        menuItems.forEach(function(menuItem) {
+            menuItem.addEventListener('click', function() {
+                document.getElementById('js-menu').classList.remove('menu-visible');
+            });
+        });
+    </script>
 
     <div id="QR_codeT" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
         <div class="relative w-full h-full max-w-md md:h-auto">
